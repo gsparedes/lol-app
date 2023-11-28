@@ -1,9 +1,11 @@
+import './Spinner.css';
+
 const Spinner = () => {
   return (
     <div role='status'>
       <svg
         aria-hidden='true'
-        className={`mr-2 w-8 h-8 animate-spin fill-green-300 text-green-700`}
+        className={`mr-2 w-8 h-8 animate-spin fill-green-300 text-green-700 search-spinner`}
         viewBox='0 0 100 101'
         fill='none'
         xmlns='http://www.w3.org/2000/svg'
