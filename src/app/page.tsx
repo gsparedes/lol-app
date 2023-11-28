@@ -1,33 +1,17 @@
 'use client';
 import { useState } from "react";
 import Search from "@/app/components/Search";
+import SummonerResultList from '@/app/components/SummonerResultList';
 
 export default function Home() {
-  const [searchValue, setSearchValue] = useState('');
-
-  const fetchPosts = async (url: string) => {
-    const response = await fetch(url);
-  
-    if (!response.ok) {
-      throw new Error("Failed to fetch posts");
-    }
-  
-    return response.json();
-  };
-
-  const handleSearch = (value: string) => {
-    // Here, you can access the search value when Enter is pressed
-    console.log(value);
-    setSearchValue(value);
-  };
+  const [results, setResults] = useState([]);
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 w-full max-w-md items-center justify-between font-mono text-sm lg:flex-inline">
-        <h1 className={'text-5xl my-10'}>Curious Search</h1>
-        <Search onSearch={handleSearch} />
-        <h2 className={'text-2xl mt-20 mx-2 underline'}>Searched for:</h2>
-        <p className={'text-2xl m-2'}> {searchValue}</p>
+        <h1 className={'text-5xl my-10'}>Summoner Search</h1>
+        <Search setResults={setResults} />
+        { results && results.length > 0 && <SummonerResultList results={results}/> }
       </div>
     </main>
   )
