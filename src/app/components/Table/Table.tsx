@@ -1,5 +1,4 @@
 'use client'
-
 import { useCallback, useMemo, useState } from 'react'
 
 import {
@@ -14,24 +13,24 @@ import {
   SortDescriptor
 } from '@nextui-org/react'
 
-import { User, columns, renderCell } from '../../summoner/columns'
-import { SearchIcon } from './icons'
+import { Champion, columns, renderCell } from '@/app/components/Table/columns'
+import { SearchIcon } from '@/app/components/Icons'
 
-export default function UserTable({ users }: { users: User[] }) {
+export default function ChampionTable({ champions }: { champions: Champion[] }) {
   const [filterValue, setFilterValue] = useState('')
   const hasSearchFilter = Boolean(filterValue)
 
   const filteredItems = useMemo(() => {
-    let filteredUsers = [...users]
+    let filteredChampions = [...champions]
 
     if (hasSearchFilter) {
-      filteredUsers = filteredUsers.filter(user =>
-        user.name.toLowerCase().includes(filterValue.toLowerCase())
+      filteredChampions = filteredChampions.filter(champion =>
+        champion.name.toLowerCase().includes(filterValue.toLowerCase())
       )
     }
 
-    return filteredUsers
-  }, [users, filterValue, hasSearchFilter])
+    return filteredChampions
+  }, [champions, filterValue, hasSearchFilter])
 
   const rowsPerPage = 8
   const [page, setPage] = useState(1)
@@ -50,9 +49,9 @@ export default function UserTable({ users }: { users: User[] }) {
   })
 
   const sortedItems = useMemo(() => {
-    return [...items].sort((a: User, b: User) => {
-      const first = a[sortDescriptor.column as keyof User] as string
-      const second = b[sortDescriptor.column as keyof User] as string
+    return [...items].sort((a: Champion, b: Champion) => {
+      const first = a[sortDescriptor.column as keyof Champion] as string
+      const second = b[sortDescriptor.column as keyof Champion] as string
       const cmp = first < second ? -1 : first > second ? 1 : 0
 
       return sortDescriptor.direction === 'descending' ? -cmp : cmp
@@ -93,7 +92,7 @@ export default function UserTable({ users }: { users: User[] }) {
 
   return (
     <Table
-      aria-label='Users table'
+      aria-label='Champions Table'
       topContent={topContent}
       topContentPlacement='outside'
       bottomContent={
@@ -126,10 +125,10 @@ export default function UserTable({ users }: { users: User[] }) {
           </TableColumn>
         )}
       </TableHeader>
-      <TableBody items={sortedItems} emptyContent={'No users to display.'}>
-        {user => (
-          <TableRow key={user.id}>
-            {columnKey => <TableCell>{renderCell(user, columnKey)}</TableCell>}
+      <TableBody items={sortedItems} emptyContent={'No champions to display.'}>
+        {champion => (
+          <TableRow key={champion.key}>
+            {columnKey => <TableCell>{renderCell(champion, columnKey)}</TableCell>}
           </TableRow>
         )}
       </TableBody>

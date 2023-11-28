@@ -1,13 +1,15 @@
 import './SummonerResult.css';
+import Link from 'next/link'
+
 
 const SummonerResult = ({ result }: { result: string }) => {
   return (
-    <div
+    <Link
       className='search-result'
-      onClick={() => alert(`You selected ${result}!`)}
+      href={'/summoner'}
     >
       {result}
-    </div>
+    </Link>
   );
 };
 
