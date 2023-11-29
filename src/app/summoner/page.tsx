@@ -1,6 +1,7 @@
 'use client';
 import Table from '@/app/components/Table'
 import { useState, useEffect } from 'react';
+import Spinner from '@/app/components/Spinner';
 
 type APIChampion = {
   key: string
@@ -14,6 +15,7 @@ type APIChampion = {
 
 export default function Champions() {
   const [champions, setChampions] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
   const summonerPuuid = 'G4GgeOR0BQMuyPcCjPwTvIDTGPqQh33j2rUE8gJaGea7RXWjHvie0tE5HaBHOJ_JFOTwoM0y-uX5nw';
   useEffect(() => {
     getChampions(summonerPuuid) 
@@ -39,12 +41,13 @@ export default function Champions() {
       };
     })
     setChampions(champions);
+    setIsLoading(false);
   }
 
   return (
     <section className='py-24'>
       <div className='container'>
-        <Table champions={champions} />
+        { isLoading ? <Spinner/> : <Table champions={champions} /> }
       </div>
     </section>
   )
