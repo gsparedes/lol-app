@@ -1,35 +1,30 @@
-'use client';
+'use client'
 import Table from '@/app/components/Table'
-import { useState, useEffect } from 'react';
-import Spinner from '@/app/components/Spinner';
-
-type APIChampion = {
-  key: string
-  name: string
-  title: string
-  blurb: string
-  image: {
-    full: string
-  }
-}
+import { useState, useEffect } from 'react'
+import { useSearchParams } from 'next/navigation'
+import Spinner from '@/app/components/Spinner'
+import { APIChampion } from '@/app/types'
 
 export default function Champions() {
+  const searchParams = useSearchParams()
+  const summonerPuuid = searchParams.get('puuid') || ''
+  const region = searchParams.get('region')
+
   const [champions, setChampions] = useState([])
   const [isLoading, setIsLoading] = useState(true)
-  const summonerPuuid = 'G4GgeOR0BQMuyPcCjPwTvIDTGPqQh33j2rUE8gJaGea7RXWjHvie0tE5HaBHOJ_JFOTwoM0y-uX5nw';
   useEffect(() => {
     getChampions(summonerPuuid) 
-  }, []);
+  }, [])
 
   const getChampions = async (summonerPuuid: string) => {
     const response = await fetch(
-      `http://localhost:3010/development/get-summoner-champions?pUUID=${summonerPuuid}&region=na1`
-    );
+      `http://localhost:3010/development/get-summoner-champions?pUUID=${summonerPuuid}&region=${region}`
+    )
     if (!response.ok) {
-      throw new Error('Failure to search for summoner');
+      throw new Error('Failure to search for summoner')
     }
   
-    const json = await response.json();
+    const json = await response.json()
   
     const champions = json.map((champion: APIChampion) => {
       return {
@@ -38,10 +33,10 @@ export default function Champions() {
         title: champion.title,
         blurb: champion.blurb,
         image: `https://ddragon.leagueoflegends.com/cdn/13.23.1/img/champion/${champion?.image?.full}`,
-      };
+      }
     })
-    setChampions(champions);
-    setIsLoading(false);
+    setChampions(champions)
+    setIsLoading(false)
   }
 
   return (

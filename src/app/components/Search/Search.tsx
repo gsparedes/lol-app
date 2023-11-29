@@ -1,39 +1,38 @@
 'use client'
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useState } from 'react'
 
-export type SearchProps = {
+type SearchProps = {
   setResults: Function
   setIsLoading: Function
 }
 
 const Search = (props: SearchProps) => {
-  const { setResults, setIsLoading } = props;
-  const [value, setValue] = useState('Enter search...');
+  const { setResults, setIsLoading } = props
+  const [value, setValue] = useState('Enter search...')
 
   const fetchData = async (value: string) => {
-    setIsLoading(true);
-    const response = await fetch(`http://localhost:3010/development/by-riot-id?gameName=${value}&tagTitle=NA1&region=americas`);
+    setIsLoading(true)
+    const response = await fetch(`http://localhost:3010/development/by-riot-id?gameName=${value}&tagTitle=NA1&region=americas`)
 
     if (!response.ok) {
-      throw new Error('Failure to search for summoner');
+      throw new Error('Failure to search for summoner')
     }
 
-    const json = await response.json();
-    setResults([json]);
-    setIsLoading(false);
-  };
+    const json = await response.json()
+    setResults([json])
+    setIsLoading(false)
+  }
 
   const searchHandler = (event: ChangeEvent<HTMLInputElement>) => {
-    const { target } = event;
-    setValue(target.value);
-  };
+    const { target } = event
+    setValue(target.value)
+  }
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
-      // Here, we call the onSearch function and pass the value
-      fetchData(value);
+      fetchData(value)
     }
-  };
+  }
 
   return (
     <div className='relative w-full text-gray-600'>
@@ -59,7 +58,7 @@ const Search = (props: SearchProps) => {
         </svg>
       </button>
     </div>
-  );
-};
+  )
+}
 
-export default Search;
+export default Search

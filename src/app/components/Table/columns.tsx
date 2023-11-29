@@ -1,12 +1,5 @@
 import { User } from '@nextui-org/react'
-
-export type Champion = {
-  key: string
-  name: string
-  title: string
-  blurb: string
-  image: string
-}
+import { Champion } from '@/app/types'
 
 export const columns = [
   {
@@ -35,6 +28,6 @@ export const renderCell = (champion: Champion, columnKey: React.Key) => {
       )
 
     default:
-      return cellValue;
+      return cellValue
   }
 }

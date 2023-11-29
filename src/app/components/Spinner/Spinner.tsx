@@ -1,4 +1,4 @@
-import './Spinner.css';
+import './Spinner.css'
 
 const Spinner = () => {
   return (
@@ -21,7 +21,7 @@ const Spinner = () => {
       </svg>
       <span className='sr-only'>Loading...</span>
     </div>
-  );
-};
+  )
+}
 
-export default Spinner;
+export default Spinner

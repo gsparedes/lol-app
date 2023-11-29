@@ -13,8 +13,9 @@ import {
   SortDescriptor
 } from '@nextui-org/react'
 
-import { Champion, columns, renderCell } from '@/app/components/Table/columns'
+import { columns, renderCell } from '@/app/components/Table/columns'
 import { SearchIcon } from '@/app/components/Icons'
+import { Champion } from '@/app/types'
 
 export default function ChampionTable({ champions }: { champions: Champion[] }) {
   const [filterValue, setFilterValue] = useState('')

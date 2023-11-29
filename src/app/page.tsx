@@ -1,12 +1,12 @@
-'use client';
-import { useState } from 'react';
-import Search from '@/app/components/Search';
-import SummonerResultList from '@/app/components/SummonerResultList';
-import Spinner from '@/app/components/Spinner';
+'use client'
+import { useState } from 'react'
+import Search from '@/app/components/Search'
+import SummonerResultList from '@/app/components/SummonerResultList'
+import Spinner from '@/app/components/Spinner'
 
 export default function Home() {
-  const [results, setResults] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [results, setResults] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
 
   return (
     <main className='flex min-h-screen flex-col items-center justify-between p-24'>
