@@ -1,5 +1,5 @@
 import React from 'react';
-import {Select, SelectItem} from '@nextui-org/react';
+import {Select, SelectItem, Image} from '@nextui-org/react';
 import { regions } from './regions';
 
 type SelectProps = {
@@ -23,8 +23,13 @@ export default function (props: SelectProps) {
       onChange={handleSelectionChange}
     >
       {regions.map((region) => (
-        <SelectItem key={region.key} value={region.value}>
-          {region.value}
+        <SelectItem key={region.key} value={region.value} textValue={region.value}>
+          <div className='flex gap-2 items-center'>
+            <Image alt={region.value} width='24' height='24' src={region.flag} style={{borderRadius: 0}}/>
+            <div className='flex flex-col'>
+              <span className='text-small'>{region.value}</span>
+            </div>
+          </div>
         </SelectItem>
       ))}
     </Select>
