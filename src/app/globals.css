@@ -25,3 +25,7 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.region-dropdown {
+  margin-bottom: 1rem;
+}

@@ -4,15 +4,21 @@ import React, { ChangeEvent, useState } from 'react'
 type SearchProps = {
   setResults: Function
   setIsLoading: Function
+  region: string
 }
 
 const Search = (props: SearchProps) => {
-  const { setResults, setIsLoading } = props
+  const { setResults, setIsLoading, region } = props
   const [value, setValue] = useState('Enter search...')
 
   const fetchData = async (value: string) => {
+    // Sample region na1_americas
+    const arr = region.split('_');
+    const tagTitle = arr[0];
+    const apiRegion = arr[1];
+
     setIsLoading(true)
-    const response = await fetch(`http://localhost:3010/development/by-riot-id?gameName=${value}&tagTitle=NA1&region=americas`)
+    const response = await fetch(`http://localhost:3010/development/by-riot-id?gameName=${value}&tagTitle=${tagTitle}&region=${apiRegion}`)
 
     if (!response.ok) {
       throw new Error('Failure to search for summoner')
