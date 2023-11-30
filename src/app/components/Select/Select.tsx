@@ -6,7 +6,7 @@ type SelectProps = {
   setRegion: Function
 }
 
-export default function DropDown(props: SelectProps) {
+export default function (props: SelectProps) {
 
   const { setRegion } = props;
 

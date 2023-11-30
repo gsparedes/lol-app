@@ -1,6 +1,6 @@
 import './Spinner.css'
 
-const Spinner = () => {
+export default function() {
   return (
     <div role='status'>
       <svg
@@ -23,5 +23,3 @@ const Spinner = () => {
     </div>
   )
 }
-
-export default Spinner

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Summoner } from '@/app/types'
 
 
-const SummonerResult = ({ result }: { result: Summoner }) => {
+export default function ({ result }: { result: Summoner }) {
   return (
     <Link
       className='search-result'
@@ -19,5 +19,3 @@ const SummonerResult = ({ result }: { result: Summoner }) => {
     </Link>
   )
 }
-
-export default SummonerResult

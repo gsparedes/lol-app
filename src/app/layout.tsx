@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: 'Lol Summoner Statistic App',
 }
 
-export default function RootLayout({
+export default function ({
   children,
 }: {
   children: React.ReactNode

@@ -5,7 +5,7 @@ import { useSearchParams } from 'next/navigation'
 import Spinner from '@/app/components/Spinner'
 import { APIChampion } from '@/app/types'
 
-export default function Champions() {
+export default function () {
   const searchParams = useSearchParams()
   const summonerPuuid = searchParams.get('puuid') || ''
   const region = searchParams.get('region')

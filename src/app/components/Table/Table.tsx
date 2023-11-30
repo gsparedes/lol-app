@@ -17,7 +17,7 @@ import { columns, renderCell } from '@/app/components/Table/columns'
 import { SearchIcon } from '@/app/components/Icons'
 import { Champion } from '@/app/types'
 
-export default function ChampionTable({ champions }: { champions: Champion[] }) {
+export default function ({ champions }: { champions: Champion[] }) {
   const [filterValue, setFilterValue] = useState('')
   const hasSearchFilter = Boolean(filterValue)
 

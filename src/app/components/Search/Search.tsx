@@ -7,7 +7,7 @@ type SearchProps = {
   region: string
 }
 
-const Search = (props: SearchProps) => {
+export default function (props: SearchProps) {
   const { setResults, setIsLoading, region } = props
   const [value, setValue] = useState('Enter search...')
 
@@ -66,5 +66,3 @@ const Search = (props: SearchProps) => {
     </div>
   )
 }
-
-export default Search

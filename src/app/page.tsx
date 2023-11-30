@@ -5,7 +5,7 @@ import SummonerResultList from '@/app/components/SummonerResultList'
 import Spinner from '@/app/components/Spinner'
 import Select from '@/app/components/Select'
 
-export default function Home() {
+export default function () {
   const [region, setRegion] = useState('na1_americas')
   const [results, setResults] = useState([])
   const [isLoading, setIsLoading] = useState(false)
