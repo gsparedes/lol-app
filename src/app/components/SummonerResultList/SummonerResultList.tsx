@@ -1,8 +1,8 @@
 import './SummonerResultList.css'
 import SummonerResult from '@/app/components/SummonerResult'
-import { Summoner } from '@/app/types'
+import { Account } from '@/app/types'
 
-const SummonerResultsList = ({ results }: { results: Summoner[]}) => {
+const SummonerResultsList = ({ results }: { results: Account[]}) => {
   return (
     <div className='results-list'>
       {results.map((result, id) => {

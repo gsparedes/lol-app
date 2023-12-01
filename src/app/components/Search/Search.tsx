@@ -40,6 +40,10 @@ export default function (props: SearchProps) {
     }
   }
 
+  const searchClick = () => {
+    fetchData(value);
+  }
+
   return (
     <div className='relative w-full text-gray-600'>
       <input
@@ -50,7 +54,7 @@ export default function (props: SearchProps) {
         onChange={(event) => searchHandler(event)}
         onKeyDown={handleKeyDown}
       />
-      <button type='submit' className='absolute right-0 top-0 mt-3 mr-4'>
+      <button type='submit' className='absolute right-0 top-0 mt-3 mr-4' onClick={searchClick}>
         <svg
           className='h-4 w-4 fill-current'
           xmlns='http://www.w3.org/2000/svg'

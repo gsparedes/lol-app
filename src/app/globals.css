@@ -26,6 +26,11 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+.active {
+  font-weight: bolder;
+  text-decoration: underline;
+}
+
 .region-dropdown {
   margin-bottom: 1rem;
 }

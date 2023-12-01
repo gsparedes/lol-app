@@ -1,7 +1,16 @@
-export type Summoner = {
+export type Account = {
   gameName: string;
   puuid: string;
   tagLine: string
+}
+
+export type Summoner = {
+  id: string;
+  accountId: string;
+  puuid: string;
+  name: string;
+  profileImage: string;
+  summonerLevel: number
 }
 
 export type Champion = {
