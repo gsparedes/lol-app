@@ -13,11 +13,11 @@ import {
   SortDescriptor
 } from '@nextui-org/react'
 
-import { columns, renderCell } from '@/app/components/Table/columns'
-import { SearchIcon } from '@/app/components/Icons'
-import { Champion } from '@/app/types'
+import { columns, renderCell } from './columns'
+import { SearchIcon } from '@/components/Icons'
+import { Champion } from '@/types'
 
-export default function ({ champions }: { champions: Champion[] }) {
+export default function ChampionsTable({ champions }: { champions: Champion[] }) {
   const [filterValue, setFilterValue] = useState('')
   const hasSearchFilter = Boolean(filterValue)
 

@@ -1,9 +1,9 @@
 import './SummonerResult.css'
 import Link from 'next/link'
-import { Account } from '@/app/types'
+import { Account } from '@/types'
 
 
-export default function ({ result }: { result: Account }) {
+export default function SearchResult({ result }: { result: Account }) {
   return (
     <Link
       className='search-result'

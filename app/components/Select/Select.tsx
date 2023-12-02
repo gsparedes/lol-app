@@ -6,7 +6,7 @@ type SelectProps = {
   setRegion: Function
 }
 
-export default function (props: SelectProps) {
+export default function SelectRegion(props: SelectProps) {
 
   const { setRegion } = props;
 

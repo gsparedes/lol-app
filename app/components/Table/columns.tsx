@@ -1,5 +1,5 @@
 import { User } from '@nextui-org/react'
-import { Champion } from '@/app/types'
+import { Champion } from '@/types'
 
 export const columns = [
   {

@@ -7,7 +7,7 @@ type SearchProps = {
   region: string
 }
 
-export default function (props: SearchProps) {
+export default function Search(props: SearchProps) {
   const { setResults, setIsLoading, region } = props
   const [value, setValue] = useState('Enter search...')
 
@@ -18,7 +18,8 @@ export default function (props: SearchProps) {
     const apiRegion = arr[1];
 
     setIsLoading(true)
-    const response = await fetch(`http://localhost:3010/development/by-riot-id?gameName=${value}&tagTitle=${tagTitle}&region=${apiRegion}`)
+    console.log(process.env.NEXT_PUBLIC_LOL_API_ENDPOINT)
+    const response = await fetch(`${process.env.NEXT_PUBLIC_LOL_API_ENDPOINT}/by-riot-id?gameName=${value}&tagTitle=${tagTitle}&region=${apiRegion}`)
 
     if (!response.ok) {
       throw new Error('Failure to search for summoner')

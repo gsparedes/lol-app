@@ -1,6 +1,6 @@
 import './Spinner.css'
 
-export default function() {
+export default function Spinner() {
   return (
     <div role='status'>
       <svg

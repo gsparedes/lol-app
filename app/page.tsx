@@ -1,11 +1,11 @@
 'use client'
 import { useState } from 'react'
-import Search from '@/app/components/Search'
-import SummonerResultList from '@/app/components/SummonerResultList'
-import Spinner from '@/app/components/Spinner'
-import Select from '@/app/components/Select'
+import Search from './components/Search'
+import SummonerResultList from './components/SummonerResultList'
+import Spinner from './components/Spinner'
+import Select from './components/Select'
 
-export default function () {
+export default function Home() {
   const [region, setRegion] = useState('na1_americas')
   const [results, setResults] = useState([])
   const [isLoading, setIsLoading] = useState(false)

@@ -10,7 +10,7 @@ export type Summoner = {
   puuid: string;
   name: string;
   profileImage: string;
-  summonerLevel: number
+  summonerLevel: number;
 }
 
 export type Champion = {
@@ -26,7 +26,5 @@ export type APIChampion = {
   name: string
   title: string
   blurb: string
-  image: {
-    full: string
-  }
+  avatar: string
 }
