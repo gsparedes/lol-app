@@ -1,6 +1,6 @@
 'use client'
 import Table from '@/components/Table'
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Spinner from '@/components/Spinner'
 import { APIChampion } from '@/types'

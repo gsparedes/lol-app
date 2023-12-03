@@ -34,3 +34,11 @@ body {
 .region-dropdown {
   margin-bottom: 1rem;
 }
+
+.summoner-details-header {
+  margin-bottom: 2rem;
+}
+
+.summoner-details-text {
+  margin-top: 1rem;
+}
