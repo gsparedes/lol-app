@@ -9,7 +9,23 @@ export const columns = [
   {
     key: 'blurb',
     label: 'Description'
-  }
+  },
+  {
+    key: 'attack',
+    label: 'Attack',
+  },
+  {
+    key: 'defense',
+    label: 'Defense',
+  },
+  {
+    key: 'magic',
+    label: 'Magic',
+  },
+  {
+    key: 'difficulty',
+    label: 'Difficulty',
+  },
 ]
 
 export const renderCell = (champion: Champion, columnKey: React.Key) => {
@@ -26,6 +42,11 @@ export const renderCell = (champion: Champion, columnKey: React.Key) => {
           {champion.name}
         </User>
       )
+    case 'attack':
+    case 'defense':
+    case 'magic':
+    case 'difficulty':
+      return <div className='text-center'>{cellValue}</div>
 
     default:
       return cellValue

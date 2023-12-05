@@ -33,6 +33,10 @@ export default function Summoner() {
           title: champion.title,
           blurb: champion.blurb,
           image: champion.avatar,
+          attack: champion.info.attack,
+          defense: champion.info.defense,
+          magic: champion.info.magic,
+          difficulty: champion.info.difficulty,
         }
       })
       setChampions(champions)

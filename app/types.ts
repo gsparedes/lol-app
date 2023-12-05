@@ -19,6 +19,10 @@ export type Champion = {
   title: string
   blurb: string
   image: string
+  attack: number
+  defense: number
+  magic: number
+  difficulty: number
 }
 
 export type APIChampion = {
@@ -27,4 +31,10 @@ export type APIChampion = {
   title: string
   blurb: string
   avatar: string
+  info: {
+    attack: number
+    defense: number
+    magic: number
+    difficulty: number
+  }
 }
