@@ -18,7 +18,6 @@ export default function Search(props: SearchProps) {
     const apiRegion = arr[1];
 
     setIsLoading(true)
-    console.log(process.env.NEXT_PUBLIC_LOL_API_ENDPOINT)
     const response = await fetch(`${process.env.NEXT_PUBLIC_LOL_API_ENDPOINT}/by-riot-id?gameName=${value}&tagTitle=${tagTitle}&region=${apiRegion}`)
 
     if (!response.ok) {

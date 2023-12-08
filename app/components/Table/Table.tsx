@@ -120,7 +120,7 @@ export default function ChampionsTable({ champions }: { champions: Champion[] })
         {column => (
           <TableColumn
             key={column.key}
-            {...(column.key === 'name' ? { allowsSorting: true } : {})}
+            allowsSorting={column.allowSorting }
           >
             {column.label}
           </TableColumn>

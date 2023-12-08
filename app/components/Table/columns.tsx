@@ -4,27 +4,33 @@ import { Champion } from '@/types'
 export const columns = [
   {
     key: 'name',
-    label: 'Name'
+    label: 'Name',
+    allowSorting: true,
   },
   {
     key: 'blurb',
-    label: 'Description'
+    label: 'Description',
+    allowSorting: false,
   },
   {
     key: 'attack',
     label: 'Attack',
+    allowSorting: true,
   },
   {
     key: 'defense',
     label: 'Defense',
+    allowSorting: true,
   },
   {
     key: 'magic',
     label: 'Magic',
+    allowSorting: true,
   },
   {
     key: 'difficulty',
     label: 'Difficulty',
+    allowSorting: true,
   },
 ]
 
