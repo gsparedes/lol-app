@@ -4,7 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'lol-app-assets.s3.us-west-1.amazonaws.com',
+        hostname: 'lol-app-assets-dev.s3.us-west-2.amazonaws.com',
         port: '',
         pathname: '/**',
       },
