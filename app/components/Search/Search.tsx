@@ -17,8 +17,16 @@ export default function Search(props: SearchProps) {
     const tagTitle = arr[0];
     const apiRegion = arr[1];
 
+    const authHeaderValue = process.env.NEXT_PUBLIC_LAMBDA_AUTH_HEADER_VALUE || '';
     setIsLoading(true)
-    const response = await fetch(`${process.env.NEXT_PUBLIC_LOL_API_ENDPOINT}/by-riot-id?gameName=${value}&tagTitle=${tagTitle}&region=${apiRegion}`)
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_LOL_API_ENDPOINT}/by-riot-id?gameName=${value}&tagTitle=${tagTitle}&region=${apiRegion}`,
+      {
+        headers: {
+          'api-lambda-auth': authHeaderValue,
+        },
+      }
+    )
 
     if (!response.ok) {
       throw new Error('Failure to search for summoner')

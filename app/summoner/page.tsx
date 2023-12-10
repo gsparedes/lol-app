@@ -16,9 +16,15 @@ export default function Summoner() {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
+    const authHeaderValue = process.env.NEXT_PUBLIC_LAMBDA_AUTH_HEADER_VALUE || '';
     const getChampions = async () => {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_LOL_API_ENDPOINT}/get-summoner-champions?pUUID=${summonerPuuid}&region=${region}`
+        `${process.env.NEXT_PUBLIC_LOL_API_ENDPOINT}/get-summoner-champions?pUUID=${summonerPuuid}&region=${region}`,
+        {
+          headers: {
+            'api-lambda-auth': authHeaderValue,
+          },
+        }
       )
       if (!response.ok) {
         throw new Error('Failure to search for summoner')
@@ -44,7 +50,12 @@ export default function Summoner() {
   
     const getSummonerDetails = async () => {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_LOL_API_ENDPOINT}/get-summoner-details?pUUID=${summonerPuuid}&region=${region}`
+        `${process.env.NEXT_PUBLIC_LOL_API_ENDPOINT}/get-summoner-details?pUUID=${summonerPuuid}&region=${region}`,
+        {
+          headers: {
+            'api-lambda-auth': authHeaderValue,
+          },
+        }
       )
       if (!response.ok) {
         throw new Error('Failure to search for summoner')
