@@ -11,8 +11,8 @@ phases:
     commands:
       - echo Running Next build
       - npm run build
-  artifacts:
-    files:
-      - "*"
-      - "**/*"
-    base-directory: out
+artifacts:
+  files:
+    - "*"
+    - "**/*"
+  base-directory: out
