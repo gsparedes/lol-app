@@ -13,11 +13,11 @@ import {
   SortDescriptor
 } from '@nextui-org/react'
 
-import { columns, renderCell } from './columns'
+import { renderCell } from './columns'
 import { SearchIcon } from '@/components/Icons'
-import { Champion } from '@/types'
+import { Champion, TableColumnHeader } from '@/types'
 
-export default function ChampionsTable({ champions, defaultSort, sortDirection }: { champions: Champion[], defaultSort: string, sortDirection: 'ascending'|'descending' }) {
+export default function ChampionsTable({ columns, champions, defaultSort, sortDirection }: { columns: TableColumnHeader[], champions: Champion[], defaultSort: string, sortDirection: 'ascending'|'descending' }) {
   const [filterValue, setFilterValue] = useState('')
   const hasSearchFilter = Boolean(filterValue)
 

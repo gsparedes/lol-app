@@ -14,6 +14,9 @@ export default function Header() {
         <Link className={`px-2 link ${pathname === '/summoner' ? 'active' : ''}`} href='/summoner'>
           Summoner Details
         </Link>
+        <Link className={`px-2 link ${pathname === '/champions' ? 'active' : ''}`} href='/champions'>
+          Champions
+        </Link>
       </nav>
     </header>
   )

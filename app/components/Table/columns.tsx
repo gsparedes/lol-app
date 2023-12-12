@@ -1,7 +1,7 @@
 import { User } from '@nextui-org/react'
 import { Champion } from '@/types'
 
-export const columns = [
+export const summonerColumns = [
   {
     key: 'championLevel',
     label: 'Champion Level',
@@ -15,6 +15,39 @@ export const columns = [
   {
     key: 'championPoints',
     label: 'Champion Points',
+    allowSorting: true,
+  },
+  {
+    key: 'blurb',
+    label: 'Description',
+    allowSorting: false,
+  },
+  {
+    key: 'attack',
+    label: 'Attack',
+    allowSorting: true,
+  },
+  {
+    key: 'defense',
+    label: 'Defense',
+    allowSorting: true,
+  },
+  {
+    key: 'magic',
+    label: 'Magic',
+    allowSorting: true,
+  },
+  {
+    key: 'difficulty',
+    label: 'Difficulty',
+    allowSorting: true,
+  },
+]
+
+export const championColumns = [
+  {
+    key: 'name',
+    label: 'Name',
     allowSorting: true,
   },
   {

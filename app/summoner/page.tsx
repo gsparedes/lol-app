@@ -5,6 +5,7 @@ import { useSearchParams } from 'next/navigation'
 import Spinner from '@/components/Spinner'
 import { APIChampion } from '@/types'
 import SummonerDetails from '@/components/SummonerDetails'
+import { summonerColumns } from '@/components/Table/columns'
 
 export default function Summoner() {
   const searchParams = useSearchParams()
@@ -77,7 +78,7 @@ export default function Summoner() {
       { isLoading ? <Spinner/> :
         <div className='container'>
           <SummonerDetails summoner={summoner}/>
-          <Table champions={champions} defaultSort={'championLevel'} sortDirection={'descending'}/>
+          <Table columns={summonerColumns} champions={champions} defaultSort={'championLevel'} sortDirection={'descending'}/>
         </div>
       }
     </section>

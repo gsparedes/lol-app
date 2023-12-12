@@ -42,3 +42,9 @@ export type APIChampion = {
     championPoints: number
   }
 }
+
+export type TableColumnHeader = {
+  key: string
+  label: string
+  allowSorting: boolean
+}
