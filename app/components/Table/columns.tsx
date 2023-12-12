@@ -3,8 +3,18 @@ import { Champion } from '@/types'
 
 export const columns = [
   {
+    key: 'championLevel',
+    label: 'Champion Level',
+    allowSorting: true,
+  },
+  {
     key: 'name',
     label: 'Name',
+    allowSorting: true,
+  },
+  {
+    key: 'championPoints',
+    label: 'Champion Points',
     allowSorting: true,
   },
   {
@@ -52,6 +62,8 @@ export const renderCell = (champion: Champion, columnKey: React.Key) => {
     case 'defense':
     case 'magic':
     case 'difficulty':
+    case 'championLevel':
+    case 'championPoints':
       return <div className='text-center'>{cellValue}</div>
 
     default:

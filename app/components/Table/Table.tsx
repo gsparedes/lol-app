@@ -17,7 +17,7 @@ import { columns, renderCell } from './columns'
 import { SearchIcon } from '@/components/Icons'
 import { Champion } from '@/types'
 
-export default function ChampionsTable({ champions }: { champions: Champion[] }) {
+export default function ChampionsTable({ champions, defaultSort, sortDirection }: { champions: Champion[], defaultSort: string, sortDirection: 'ascending'|'descending' }) {
   const [filterValue, setFilterValue] = useState('')
   const hasSearchFilter = Boolean(filterValue)
 
@@ -37,27 +37,27 @@ export default function ChampionsTable({ champions }: { champions: Champion[] })
   const [page, setPage] = useState(1)
   const pages = Math.ceil(filteredItems.length / rowsPerPage)
 
-  const items = useMemo(() => {
-    const start = (page - 1) * rowsPerPage
-    const end = start + rowsPerPage
-
-    return filteredItems.slice(start, end)
-  }, [page, filteredItems])
-
   const [sortDescriptor, setSortDescriptor] = useState<SortDescriptor>({
-    column: 'name',
-    direction: 'ascending'
+    column: defaultSort,
+    direction: sortDirection
   })
 
   const sortedItems = useMemo(() => {
-    return [...items].sort((a: Champion, b: Champion) => {
+    return [...filteredItems].sort((a: Champion, b: Champion) => {
       const first = a[sortDescriptor.column as keyof Champion] as string
       const second = b[sortDescriptor.column as keyof Champion] as string
       const cmp = first < second ? -1 : first > second ? 1 : 0
 
       return sortDescriptor.direction === 'descending' ? -cmp : cmp
     })
-  }, [sortDescriptor, items])
+  }, [sortDescriptor, filteredItems])
+
+  const items = useMemo(() => {
+    const start = (page - 1) * rowsPerPage
+    const end = start + rowsPerPage
+
+    return sortedItems.slice(start, end)
+  }, [page, sortedItems])
 
   const onSearchChange = useCallback((value?: string) => {
     if (value) {
@@ -126,7 +126,7 @@ export default function ChampionsTable({ champions }: { champions: Champion[] })
           </TableColumn>
         )}
       </TableHeader>
-      <TableBody items={sortedItems} emptyContent={'No champions to display.'}>
+      <TableBody items={items} emptyContent={'No champions to display.'}>
         {champion => (
           <TableRow key={champion.key}>
             {columnKey => <TableCell>{renderCell(champion, columnKey)}</TableCell>}

@@ -37,4 +37,8 @@ export type APIChampion = {
     magic: number
     difficulty: number
   }
+  playerMetadata: {
+    championLevel: number
+    championPoints: number
+  }
 }

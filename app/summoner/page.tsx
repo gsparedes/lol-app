@@ -43,6 +43,8 @@ export default function Summoner() {
           defense: champion.info.defense,
           magic: champion.info.magic,
           difficulty: champion.info.difficulty,
+          championLevel: champion.playerMetadata.championLevel,
+          championPoints: champion.playerMetadata.championPoints,
         }
       })
       setChampions(champions)
@@ -75,7 +77,7 @@ export default function Summoner() {
       { isLoading ? <Spinner/> :
         <div className='container'>
           <SummonerDetails summoner={summoner}/>
-          <Table champions={champions} />
+          <Table champions={champions} defaultSort={'championLevel'} sortDirection={'descending'}/>
         </div>
       }
     </section>
