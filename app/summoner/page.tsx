@@ -66,11 +66,10 @@ export default function Summoner() {
     
       const summoner = await response.json()
       setSummoner(summoner)
+      setIsLoading(false)
     }
 
-    getChampions()
-    getSummonerDetails()
-    setIsLoading(false)
+    getChampions().then(getSummonerDetails)
   }, [summonerPuuid, region])
 
   return (

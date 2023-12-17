@@ -40,10 +40,10 @@ export default function Summoner() {
         }
       })
       setChampions(champions)
+      setIsLoading(false)
     }
 
     getChampions()
-    setIsLoading(false)
   }, [])
 
   return (
