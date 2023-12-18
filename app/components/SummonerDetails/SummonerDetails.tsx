@@ -13,7 +13,7 @@ export default function SumonerDetails({ summoner }: { summoner?: Summoner }) {
           <span className='text-large font-bold	'>{summoner?.name}</span>
         </div>
         <div>
-          <span className='text-small'>Level: {summoner?.summonerLevel}</span>
+          <span className='text-small'>{summoner ? `Level: ${summoner?.summonerLevel}`: ''}</span>
         </div>
       </div>
     </div>
